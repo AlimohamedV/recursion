@@ -1,30 +1,20 @@
 #include <iostream>
 using namespace std;
 
-void print(int row, int n, int spaces, int stars) {
-    if (row > n) return;
+void printRow(int spaces, int stars) {
+    if (spaces > 0) { cout << " "; printRow(spaces - 1, stars); }
+    else if (stars > 0) { cout << "*"; printRow(0, stars - 1); }
+    else cout << endl;
+}
 
-    if (spaces > 0) {
-        cout << " ";
-        print(row, n, spaces - 1, stars);
-    } 
-    else if (stars > 0) {
-        cout << "*";
-        print(row, n, 0, stars - 1);
-    } 
-    else {
-        cout << endl;
-        int nextrow = row + 1;
-        int nextspaces = n - nextrow;
-        int nextstars = 2 * nextrow - 1;
-        
-        print(nextrow, n, nextspaces, nextstars);
-    }
+void pyramid(int row, int n) {
+    if (row > n) return;
+    printRow(n - row, 2 * row - 1);
+    pyramid(row + 1, n);
 }
 
 int main() {
     int n;
     cin >> n;
-    print(1, n, n - 1, 1);
-    
+    pyramid(1, n);
 }
