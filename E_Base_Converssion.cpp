@@ -1,14 +1,3 @@
-/*Given a number N. Print the binary equivalent of N.
-
-Note: Solve this problem using recursion.
-Input
-
-First line contains a number T (1 ≤ T ≤ 104) number of test cases.
-
-Next T lines will contain a number N (1 ≤ N ≤ 109).
-Output
-
-For each test case print a single line contains the answer according to the required above.*/
 #include <iostream>
 using namespace std;
 void print(int n){
